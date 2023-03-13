@@ -5,9 +5,13 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./apps.nix
+      ./home.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -28,8 +32,6 @@ boot.initrd.luks.devices = {
   };
 };
 
-
-
   services.xserver = {
     enable = true;
     desktopManager = {
@@ -41,16 +43,11 @@ boot.initrd.luks.devices = {
 
 
   networking.hostName = "nix-lap"; # Define your hostname.
-  # Pick only one of the below networking options.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -59,12 +56,6 @@ boot.initrd.luks.devices = {
 #     keyMap = "de";
      useXkbConfig = true; # use xkbOptions in tty.
    };
-
-
-
-  # Enable the GNOME Desktop Environment.
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
   
 
   # Configure keymap in X11
@@ -90,13 +81,7 @@ boot.initrd.luks.devices = {
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
    };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     wget
-     firefox
-   ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -120,7 +105,7 @@ boot.initrd.luks.devices = {
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  #system.copySystemConfiguration = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
