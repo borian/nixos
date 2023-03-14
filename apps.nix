@@ -1,17 +1,18 @@
 { config, pkgs, ... }:
 
 {
-    
-   environment.systemPackages = with pkgs; [
-     vim 
-     wget
-     firefox
-     vscode
-     rofi
-     guake
-     git
-     zsh
-   ];
 
+  environment.systemPackages = with pkgs; [
+    nixfmt
+
+    vim
+    wget
+    firefox
+    vscode
+    rofi
+    guake
+    git
+    zsh
+  ];
 
 }

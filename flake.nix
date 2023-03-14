@@ -2,12 +2,14 @@
   description = "My machines";
 
   inputs = {
-    # Add other inputs as needed
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # nix flake lock --update-input home-manager
+    home-manager.url = "github:nix-community/home-manager";
   };
 
   outputs = { self, nixpkgs, ... }: {
-    
+
     # Use nixpkgs-fmt for 'nix fmt'
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
@@ -24,6 +26,5 @@
       };
     };
 
-    
   };
 }

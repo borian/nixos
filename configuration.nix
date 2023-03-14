@@ -7,30 +7,29 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./apps.nix
-      ./home.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./apps.nix
+    ./home.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
-  boot.loader.grub.useOSProber= true;
+  boot.loader.grub.useOSProber = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.cleanTmpDir = true;
 
-boot.initrd.luks.devices = {
-  root = {
-    # Get UUID from blkid /dev/sda2
-    device = "/dev/disk/by-uuid/861e8b28-33da-494d-abb8-b80c75557076";
-    preLVM = true;
-    allowDiscards = true;
+  boot.initrd.luks.devices = {
+    root = {
+      # Get UUID from blkid /dev/sda2
+      device = "/dev/disk/by-uuid/861e8b28-33da-494d-abb8-b80c75557076";
+      preLVM = true;
+      allowDiscards = true;
+    };
   };
-};
 
   services.xserver = {
     enable = true;
@@ -41,22 +40,21 @@ boot.initrd.luks.devices = {
     displayManager.defaultSession = "xfce";
   };
 
-
   networking.hostName = "nix-lap"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable =
+    true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-   console = {
-     font = "Lat2-Terminus16";
-#     keyMap = "de";
-     useXkbConfig = true; # use xkbOptions in tty.
-   };
-  
+  console = {
+    font = "Lat2-Terminus16";
+    #     keyMap = "de";
+    useXkbConfig = true; # use xkbOptions in tty.
+  };
 
   # Configure keymap in X11
   services.xserver.layout = "de";
@@ -76,12 +74,10 @@ boot.initrd.luks.devices = {
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.bo = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-   };
-
-
+  users.users.bo = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
