@@ -6,7 +6,7 @@
   programs.zsh = {
     enable = true;
 
-    oh-my-zsh = {
+    ohMyZsh = {
       enable = true;
       plugins = [ "git" "docker" ];
       theme = "clean";

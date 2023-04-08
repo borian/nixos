@@ -9,8 +9,10 @@
 
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./xfce.nix
     ./apps.nix
     ./home.nix
+    ./vim.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
