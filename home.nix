@@ -16,6 +16,8 @@
       ll = "ls -l";
       gs = "gss";
       update = "sudo nixos-rebuild --flake .#nix-lap switch";
+      op = "xdg-open";
+      # bt sony xm4 connect 88:C9:E8:B1:17:D9
     };
   };
 }

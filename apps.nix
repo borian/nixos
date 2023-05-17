@@ -13,6 +13,13 @@
     guake
     git
     zsh
+    # virtualbox
+
+    jdk
+    nodejs
+
+    discord
+
   ];
 
 }
