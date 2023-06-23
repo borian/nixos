@@ -5,21 +5,25 @@
   environment.systemPackages = with pkgs; [
     nixfmt
 
-    vim
     wget
-    firefox
-    vscode
     rofi
     guake
+    tmux
+    vim
     git
     zsh
-    # virtualbox
 
+    # dev
+    vscode
     jdk
     nodejs
+    dig
 
+    # Apps
+    firefox
     discord
-
+    signal-desktop
+    keepassxc
   ];
 
 }
