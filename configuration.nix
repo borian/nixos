@@ -18,12 +18,11 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.cleanTmpDir = true;
+  boot.tmp.cleanOnBoot = true;
 
   boot.initrd.luks.devices = {
     root = {
@@ -42,6 +41,8 @@
     };
     displayManager.defaultSession = "xfce";
   };
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.hostName = "nix-lap"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
