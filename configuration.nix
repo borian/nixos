@@ -20,7 +20,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
-  boot.loader.grub.useOSProber = true;
+  # boot.loader.grub.useOSProber = true; # needed on multi os
   boot.loader.efi.canTouchEfiVariables = true;
   boot.tmp.cleanOnBoot = true;
 
@@ -79,8 +79,9 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bo = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "users" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "users" "docker" ]; # Enable ‘sudo’ for the user.
   };
+  virtualisation.docker.enable = true;
 
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.guest.enable = true;

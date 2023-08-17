@@ -18,6 +18,8 @@
     jdk
     nodejs
     dig
+    docker
+    wireshark
 
     # Apps
     firefox

@@ -14,6 +14,11 @@
 
   environment.systemPackages = with pkgs; [
     xorg.xhost
+
+    (pkgs.runCommand "idea.sh" {} ''
+      mkdir -p $out/bin
+      cp -a ${../usr-bin/idea.sh} $out/bin/idea
+    '')
   ];
 
 }
