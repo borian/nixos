@@ -23,6 +23,7 @@
 
     # Apps
     firefox
+    vlc
     discord
     signal-desktop
     keepassxc
