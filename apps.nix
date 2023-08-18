@@ -23,6 +23,7 @@
 
     # Apps
     firefox
+    chromium
     vlc
     discord
     signal-desktop
