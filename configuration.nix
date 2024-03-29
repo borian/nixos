@@ -61,7 +61,7 @@
   };
 
   # Configure keymap in X11
-  services.xserver.layout = "de";
+  services.xserver.xkb.layout = "de";
   # services.xserver.xkbOptions = {
   #   "eurosign:e";
   #   "caps:escape" # map caps to escape.
@@ -79,14 +79,18 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bo = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "users" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "users" "docker" "adbusers" ]; # Enable ‘sudo’ for the user.
   };
   virtualisation.docker.enable = true;
 
   virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.x11 = true;
+  #virtualisation.virtualbox.host.enableKvm = true;
+  #virtualisation.virtualbox.guest.enable = true;
+  #virtualisation.virtualbox.guest.x11 = true;
   users.extraGroups.vboxusers.members = [ "bo" ];
+
+  # ADB 
+  programs.adb.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

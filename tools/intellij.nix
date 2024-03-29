@@ -1,5 +1,4 @@
 
-
 { config, pkgs,  ... }:
 
 {
@@ -10,7 +9,11 @@
     extraGroups = [ "users" ]; # "wheel" "networkmanager"
   };
 
-
+  # security.sudo.extraRules = 
+  # [
+  #   { users = [ "bo" ];
+  #   commands = [ { command = "$out/bin/idea"; options = [ "SETENV" "NOPASSWD" ]; } ]; }
+  # ];
 
   environment.systemPackages = with pkgs; [
     xorg.xhost

@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
   environment.systemPackages = with pkgs; [
     nixfmt
 
@@ -20,6 +19,15 @@
     dig
     docker
     wireshark
+    iotop
+    ansible
+    difftastic
+    cargo
+
+    # rust
+    rustc
+    gcc
+    cmake
 
     # Apps
     firefox
@@ -28,6 +36,7 @@
     discord
     signal-desktop
     keepassxc
+    spotify
   ];
 
 }
