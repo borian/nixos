@@ -14,6 +14,7 @@
     ./home.nix
     ./vim.nix
     ./tools/intellij.nix
+    ./dev/tauri.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
