@@ -40,4 +40,9 @@
     '';
   };
 
+  # dev
+  programs.java = {
+    enable = true;
+  };
+
 }

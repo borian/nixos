@@ -6,7 +6,10 @@
   users.users.BoBrueck = {
     isNormalUser = true;
     home = "/home/intellij";
-    extraGroups = [ "users" ]; # "wheel" "networkmanager"
+    extraGroups = [ 
+      "users"
+      "docker"
+    ];
   };
 
   # security.sudo.extraRules = 

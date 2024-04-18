@@ -7,7 +7,8 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./xfce.nix
     ./apps.nix
@@ -39,15 +40,23 @@
       xterm.enable = false;
       xfce.enable = true;
     };
-    displayManager.defaultSession = "xfce";
   };
+  services.displayManager.defaultSession = "xfce";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";  
+    options = "--delete-older-than 30d";
+};
 
   networking.hostName = "nix-lap"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable =
-    true; # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -59,6 +68,8 @@
     #     keyMap = "de";
     useXkbConfig = true; # use xkbOptions in tty.
   };
+
+  fonts.packages = with pkgs; [ noto-fonts ];
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "de";
@@ -79,7 +90,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bo = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "users" "docker" "adbusers" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "users"
+      "docker"
+      "adbusers"
+    ]; # Enable ‘sudo’ for the user.
   };
   virtualisation.docker.enable = true;
 
@@ -123,6 +139,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-
 }
-

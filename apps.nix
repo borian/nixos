@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    nixfmt
+    nixfmt-rfc-style
 
     wget
     rofi
@@ -11,6 +11,7 @@
     vim
     git
     zsh
+    ncdu
 
     # dev
     vscode
