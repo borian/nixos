@@ -14,21 +14,30 @@
     ncdu
 
     # dev
+    # jetbrains.idea-ultimate
     vscode
     jdk
     nodejs
+    bun
     dig
     docker
+    kubectl
+    kubectx
+    kubernetes-helm
+    k9s
+    keystore-explorer
     wireshark
     iotop
     ansible
+    openssl
     difftastic
-    cargo
+    
 
     # rust
     rustc
     gcc
     cmake
+    cargo
 
     # Apps
     firefox
@@ -38,6 +47,7 @@
     signal-desktop
     keepassxc
     spotify
+    obsidian
   ];
 
 }

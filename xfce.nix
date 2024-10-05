@@ -10,7 +10,7 @@
 
     blueman # bluetooth manager
 
-    gnome.file-roller
+    file-roller
     zip
     zstd
     xz
