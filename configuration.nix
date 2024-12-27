@@ -108,6 +108,10 @@
   programs.adb.enable = true;
   
   programs.mtr.enable = true;
+
+  programs.steam.enable = true;
+
+
   
   networking.firewall.enable = true;
   services.tailscale.enable = true; 

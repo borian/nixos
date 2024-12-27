@@ -31,7 +31,7 @@
     ansible
     openssl
     difftastic
-    
+    tailscale
 
     # rust
     rustc
@@ -46,7 +46,7 @@
     discord
     signal-desktop
     keepassxc
-    spotify
+    # spotify
     obsidian
   ];
 
