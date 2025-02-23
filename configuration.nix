@@ -2,7 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -50,9 +54,9 @@
 
   nix.gc = {
     automatic = true;
-    dates = "weekly";  
+    dates = "weekly";
     options = "--delete-older-than 30d";
-};
+  };
 
   networking.hostName = "nix-lap"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -95,6 +99,7 @@
       "users"
       "docker"
       "adbusers"
+      "dialout"
     ]; # Enable ‘sudo’ for the user.
   };
   virtualisation.docker.enable = true;
@@ -106,15 +111,13 @@
   users.extraGroups.vboxusers.members = [ "bo" ];
 
   programs.adb.enable = true;
-  
+
   programs.mtr.enable = true;
 
   programs.steam.enable = true;
 
-
-  
   networking.firewall.enable = true;
-  services.tailscale.enable = true; 
+  services.tailscale.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

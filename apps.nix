@@ -14,7 +14,7 @@
     ncdu
 
     # dev
-    # jetbrains.idea-ultimate
+    jetbrains.idea-ultimate
     vscode
     jdk
     nodejs
@@ -48,6 +48,7 @@
     keepassxc
     # spotify
     obsidian
+    wgnord
   ];
 
 }

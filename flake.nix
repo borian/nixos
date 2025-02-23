@@ -8,23 +8,29 @@
     # home-manager.url = "github:nix-community/home-manager";
   };
 
-  outputs = { self, nixpkgs, ... }: {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ...
+    }:
+    {
 
-    # Use nixpkgs-fmt for 'nix fmt'
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+      # Use nixpkgs-fmt for 'nix fmt'
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
-    # NixOS hosts. Apply with:
-    # nixos-rebuild switch --flake '.#nix-lap'                   # Inside this repository, or
-    # nixos-rebuild switch --flake '/path/to/this/repo#nix-lap'  # From anywhere else
+      # NixOS hosts. Apply with:
+      # nixos-rebuild switch --flake '.#nix-lap'                   # Inside this repository, or
+      # nixos-rebuild switch --flake '/home/bo/code/nixos#nix-lap'  # From anywhere else
 
-    nixosConfigurations = {
+      nixosConfigurations = {
 
-      # Currently only one host. Add others here when needed.
-      nix-lap = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./configuration.nix ];
+        # Currently only one host. Add others here when needed.
+        nix-lap = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./configuration.nix ];
+        };
       };
-    };
 
-  };
+    };
 }
