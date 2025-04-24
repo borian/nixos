@@ -12,6 +12,7 @@
     git
     zsh
     ncdu
+    htop
 
     # dev
     jetbrains.idea-ultimate
@@ -32,6 +33,7 @@
     openssl
     difftastic
     tailscale
+    aider-chat
 
     # rust
     rustc
@@ -47,6 +49,7 @@
     signal-desktop
     keepassxc
     # spotify
+    tidal-hifi
     obsidian
     wgnord
   ];

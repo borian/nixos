@@ -5,7 +5,7 @@
 
   programs.zsh = {
     enable = true;
-    shellInit = ''[ -z "$TMUX"  ] && { exec tmux new-session && exit;};'';
+    # shellInit = ''[ -z "$TMUX"  ] && { exec tmux new-session && exit;};'';
     ohMyZsh = {
       enable = true;
       plugins = [ "git" "docker" "tmux" ];
