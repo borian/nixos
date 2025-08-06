@@ -13,6 +13,7 @@
     zsh
     ncdu
     htop
+    avahi
 
     # dev
     jetbrains.idea-ultimate
@@ -52,6 +53,7 @@
     tidal-hifi
     obsidian
     wgnord
+    gnome-network-displays
   ];
 
 }

@@ -1,7 +1,5 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
+# NixOS manual ‘nixos-help’
+# ascii https://patorjk.com/software/taag/#p=display&f=miniwi&t=nix
 {
   config,
   pkgs,
@@ -9,7 +7,20 @@
 }:
 
 {
+#   ▘  
+# ▛▌▌▚▘
+# ▌▌▌▞▖
   nixpkgs.config.allowUnfree = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   imports = [
     # Include the results of the hardware scan.
@@ -20,6 +31,10 @@
     ./vim.nix
     # ./tools/intellij.nix
   ];
+
+# ▌     ▗ 
+# ▛▌▛▌▛▌▜▘
+# ▙▌▙▌▙▌▐▖
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.enable = true;
@@ -38,6 +53,8 @@
     };
   };
 
+
+
   services.xserver = {
     enable = true;
     desktopManager = {
@@ -47,21 +64,19 @@
   };
   services.displayManager.defaultSession = "xfce";
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
+
+
+
+#       ▗      
+# ▛▘▌▌▛▘▜▘█▌▛▛▌
+# ▄▌▙▌▄▌▐▖▙▖▌▌▌
+#   ▄▌         
 
   networking.hostName = "nix-lap"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
-
+  # network discovery 
+  services.avahi.enable = true;
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
 
@@ -75,33 +90,31 @@
 
   fonts.packages = with pkgs; [ noto-fonts ];
 
-  # Configure keymap in X11
   services.xserver.xkb.layout = "de";
   # services.xserver.xkbOptions = {
   #   "eurosign:e";
   #   "caps:escape" # map caps to escape.
   # };
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  # services.printing.enable = true;  # Enable CUPS to print documents.
 
-  # Enable sound.
   # sound.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.bo = {
+  
+  users.users.bo = { # set password with ‘passwd’ on install
     isNormalUser = true;
     extraGroups = [
-      "wheel"
+      "wheel" # Enable ‘sudo’
       "users"
       "docker"
       "adbusers"
       "dialout"
-    ]; # Enable ‘sudo’ for the user.
+    ];
   };
+
+#   ▘  ▗ 
+# ▌▌▌▛▘▜▘
+# ▚▘▌▌ ▐▖
   virtualisation.docker.enable = true;
 
   virtualisation.virtualbox.host.enable = true;
@@ -110,14 +123,21 @@
   #virtualisation.virtualbox.guest.x11 = true;
   users.extraGroups.vboxusers.members = [ "bo" ];
 
-  programs.adb.enable = true;
+
+#     ▗        ▌ 
+# ▛▌█▌▜▘▌▌▌▛▌▛▘▙▘
+# ▌▌▙▖▐▖▚▚▘▙▌▌ ▛▖
+  networking.networkmanager.enable = true; 
+  networking.firewall.enable = true;
+
+  services.tailscale.enable = true;
 
   programs.mtr.enable = true;
+  programs.adb.enable = true;
 
   programs.steam.enable = true;
 
-  networking.firewall.enable = true;
-  services.tailscale.enable = true;
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

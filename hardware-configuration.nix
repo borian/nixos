@@ -25,10 +25,6 @@
   swapDevices =
     [{ device = "/dev/disk/by-uuid/9529c847-e805-4ccd-a083-8fa3620277cb"; }];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
@@ -42,4 +38,13 @@
     lib.mkDefault config.hardware.enableRedistributableFirmware;
   
   services.pulseaudio.enable = false;
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    #jack.enable = true;
+  };
 }
