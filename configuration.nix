@@ -53,27 +53,13 @@
     };
   };
 
-
-
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-      xfce.enable = true;
-    };
-  };
-  services.displayManager.defaultSession = "xfce";
-
-
-
-
-
 #       ▗      
 # ▛▘▌▌▛▘▜▘█▌▛▛▌
 # ▄▌▙▌▄▌▐▖▙▖▌▌▌
 #   ▄▌         
 
   networking.hostName = "nix-lap"; # Define your hostname.
+  networking.extraHosts = "127.0.0.1 n8n.mxr.app";
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # network discovery 
   services.avahi.enable = true;
@@ -90,6 +76,14 @@
 
   fonts.packages = with pkgs; [ noto-fonts ];
 
+  services.displayManager.defaultSession = "xfce";
+  services.xserver = {
+    enable = true;
+    desktopManager = {
+      xterm.enable = false;
+      xfce.enable = true;
+    };
+  };
   services.xserver.xkb.layout = "de";
   # services.xserver.xkbOptions = {
   #   "eurosign:e";
@@ -98,9 +92,9 @@
 
   # services.printing.enable = true;  # Enable CUPS to print documents.
 
-  # sound.enable = true;
-
-  
+        
+# ▌▌▛▘█▌▛▘
+# ▙▌▄▌▙▖▌ 
   users.users.bo = { # set password with ‘passwd’ on install
     isNormalUser = true;
     extraGroups = [
@@ -136,6 +130,8 @@
   programs.adb.enable = true;
 
   programs.steam.enable = true;
+
+
 
 
 

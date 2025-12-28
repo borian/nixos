@@ -14,13 +14,15 @@
     ncdu
     htop
     avahi
+    usbutils
 
     # dev
-    jetbrains.idea-ultimate
+    jetbrains.idea
     vscode
     jdk
     nodejs
     bun
+    uv
     dig
     docker
     kubectl
@@ -35,6 +37,8 @@
     difftastic
     tailscale
     aider-chat
+    claude-code
+    opencode
 
     # rust
     rustc
@@ -47,10 +51,10 @@
     chromium
     vlc
     discord
+    obs-studio
     signal-desktop
     keepassxc
-    # spotify
-    tidal-hifi
+    spotify
     obsidian
     wgnord
     gnome-network-displays

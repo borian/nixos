@@ -34,11 +34,11 @@
     xfce.xfce4-dict
     xfce.xfce4-fsguard-plugin
     xfce.xfce4-genmon-plugin
-    xfce.xfce4-panel
     xfce.xfce4-pulseaudio-plugin
     xfce.xfce4-systemload-plugin
     xfce.xfce4-whiskermenu-plugin
     xfce.xfce4-xkb-plugin
+    xfce4-panel
     xorg.xev
     xorg.xkill
     xsel
