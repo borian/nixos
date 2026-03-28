@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    nixfmt-rfc-style
+    nixfmt
 
     wget
     rofi
@@ -29,6 +29,7 @@
     kubectx
     kubernetes-helm
     k9s
+    android-tools
     keystore-explorer
     wireshark
     iotop

@@ -127,8 +127,6 @@
   services.tailscale.enable = true;
 
   programs.mtr.enable = true;
-  programs.adb.enable = true;
-
   programs.steam.enable = true;
 
 

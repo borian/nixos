@@ -6,7 +6,7 @@
 
   environment.systemPackages = with pkgs; [
     acpid
-    xfce.xfce4-whiskermenu-plugin
+    xfce4-whiskermenu-plugin
 
     blueman # bluetooth manager
 
@@ -27,26 +27,26 @@
     xcolor
     xdo
     xdotool
-    xfce.catfish
-    xfce.gigolo
-    xfce.xfce4-appfinder
-    xfce.xfce4-clipman-plugin
-    xfce.xfce4-dict
-    xfce.xfce4-fsguard-plugin
-    xfce.xfce4-genmon-plugin
-    xfce.xfce4-pulseaudio-plugin
-    xfce.xfce4-systemload-plugin
-    xfce.xfce4-whiskermenu-plugin
-    xfce.xfce4-xkb-plugin
+    catfish
+    gigolo
+    xfce4-appfinder
+    xfce4-clipman-plugin
+    xfce4-dict
+    xfce4-fsguard-plugin
+    xfce4-genmon-plugin
+    xfce4-pulseaudio-plugin
+    xfce4-systemload-plugin
+    xfce4-whiskermenu-plugin
+    xfce4-xkb-plugin
     xfce4-panel
-    xorg.xev
-    xorg.xkill
+    xev
+    xkill
     xsel
     xwinmosaic
 
   ];
 
-  programs.thunar.plugins = with pkgs.xfce; [
+  programs.thunar.plugins = with pkgs; [
     thunar-archive-plugin
     thunar-volman
   ];
